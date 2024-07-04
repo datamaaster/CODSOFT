@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class CurrencyConverter {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        double usdToEur = 0.85; // USD to EUR conversion rate
+        double usdToJpy = 110.0; // USD to JPY conversion rate
+        double eurToUsd = 1.18; // EUR to USD conversion rate
+        double eurToJpy = 129.0; // EUR to JPY conversion rate
+        double jpyToUsd = 0.0091; // JPY to USD conversion rate
+        double jpyToEur = 0.0078; // JPY to EUR conversion rate
+
+        System.out.println("Currency Converter");
+        System.out.println("1. USD to EUR");
+        System.out.println("2. USD to JPY");
+        System.out.println("3. EUR to USD");
+        System.out.println("4. EUR to JPY");
+        System.out.println("5. JPY to USD");
+        System.out.println("6. JPY to EUR");
+        System.out.print("Select the conversion option: ");
+        int option = scanner.nextInt();
+
+        System.out.print("Enter the amount to convert: ");
+        double amount = scanner.nextDouble();
+        double convertedAmount = 0;
+
+        switch (option) {
+            case 1:
+                convertedAmount = amount * usdToEur;
+                System.out.println(amount + " USD is " + convertedAmount + " EUR");
+                break;
+            case 2:
+                convertedAmount = amount * usdToJpy;
+                System.out.println(amount + " USD is " + convertedAmount + " JPY");
+                break;
+            case 3:
+                convertedAmount = amount * eurToUsd;
+                System.out.println(amount + " EUR is " + convertedAmount + " USD");
+                break;
+            case 4:
+                convertedAmount = amount * eurToJpy;
+                System.out.println(amount + " EUR is " + convertedAmount + " JPY");
+                break;
+            case 5:
+                convertedAmount = amount * jpyToUsd;
+                System.out.println(amount + " JPY is " + convertedAmount + " USD");
+                break;
+            case 6:
+                convertedAmount = amount * jpyToEur;
+                System.out.println(amount + " JPY is " + convertedAmount + " EUR");
+                break;
+            default:
+                System.out.println("Invalid option selected.");
+                break;
+        }
+
+        scanner.close();
+    }
+}
