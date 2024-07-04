@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class sample {
+    
+    // Function to calculate the letter grade
+    public static char calculateLetterGrade(double average) {
+        if (average >= 90) {
+            return 'A';
+        } else if (average >= 80) {
+            return 'B';
+        } else if (average >= 70) {
+            return 'C';
+        } else if (average >= 60) {
+            return 'D';
+        } else {
+            return 'F';
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the number of grades
+        System.out.print("Enter the number of grades: ");
+        int numberOfGrades = scanner.nextInt();
+        
+        // Array to hold the grades
+        int[] grades = new int[numberOfGrades];
+        
+        // Prompt the user to enter each grade
+        for (int i = 0; i < numberOfGrades; i++) {
+            System.out.print("Enter grade " + (i + 1) + ": ");
+            grades[i] = scanner.nextInt();
+        }
+        
+        // Calculate the sum of all grades
+        int total = 0;
+        for (int grade : grades) {
+            total += grade;
+        }
+        
+        // Calculate the average grade
+        double average = (double) total / grades.length;
+        
+        // Calculate the letter grade
+        char letterGrade = calculateLetterGrade(average);
+        
+        // Print the results
+        System.out.println("Grades: ");
+        for (int grade : grades) {
+            System.out.print(grade + " ");
+        }
+        System.out.println("\nAverage Grade: " + String.format("%.2f", average));
+        System.out.println("Final Letter Grade: " + letterGrade);
+
+        scanner.close();
+    }
+}
